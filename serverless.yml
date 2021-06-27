@@ -1,0 +1,88 @@
+service: api-swapi
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: arn:aws:dynamodb:us-east-1:*:*
+
+resources:
+  Resources:
+    TableProductos:
+      Type: "AWS::DynamoDB::Table"
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: idproducto
+            AttributeType: S
+        KeySchema:
+          - AttributeName: idproducto
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: "productos"
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: /hello
+          method: get
+  naves:
+    handler: src/builds/naves.naves
+    events:
+      - http:
+          path: /naves/{id}
+          method: get
+  peliculas:
+    handler: src/builds/peliculas.peliculas
+    events:
+      - http:
+          path: /peliculas/{id}
+          method: get
+  planetas:
+    handler: src/builds/planetas.planetas
+    events:
+      - http:
+          path: /planetas/{id}
+          method: get
+  recursos:
+    handler: src/builds/recursos.recursos
+    events:
+      - http:
+          path: /recursos
+          method: get
+  personas:
+    handler: src/builds/personas.personas
+    events:
+      - http:
+          path: /personas/{id}
+          method: get
+  agregarProducto:
+    handler: src/builds/productos.agregarProducto
+    events:
+      - http:
+          path: /agregarProducto
+          method: post
+  productos:
+    handler: src/builds/productos.productos
+    events:
+      - http:
+          path: /productos
+          method: get
+plugins:
+  - serverless-offline
