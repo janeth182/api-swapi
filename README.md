@@ -21,7 +21,7 @@ https://xibwsiih87.execute-api.us-east-1.amazonaws.com/dev/personas/4
 
 Data almacenada en BD Método GET
 
-https://xibwsiih87.execute-api.us-east-1.amazonaws.com/dev/Productos
+https://xibwsiih87.execute-api.us-east-1.amazonaws.com/dev/productos
 
 Método POST
 
