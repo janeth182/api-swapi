@@ -1,7 +1,5 @@
 # api-swapi
-Reto Back
-
-Integración con la API de prueba StarWars API
+Reto Back: Integración con la API de prueba StarWars API
 
 -Documentacion SwaggerHub Open API 3.0
 
