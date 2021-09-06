@@ -3,7 +3,7 @@ Reto Back: Integración con la API de prueba StarWars API
 
 -Documentacion SwaggerHub Open API 3.0
 
-https://app.swaggerhub.com/apis-docs/janeth182/api-swapi/0.0.1#/
+https://app.swaggerhub.com/apis-docs/janeth182/api-swapi/v1
 
 -Url de depliegue en AWS:
 
